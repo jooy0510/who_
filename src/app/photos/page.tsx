@@ -11,10 +11,10 @@ interface Props {}
 export default async function PhotosPage() {
   const data = await getData();
   return (
-    <div>
+    <main>
       <h1 className="font-bold text-lg">응원 현황입니다.</h1>
       <PhotosList list={data}></PhotosList>
-    </div>
+    </main>
   );
 }
 

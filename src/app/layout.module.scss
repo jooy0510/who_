@@ -1,21 +1,16 @@
-.main {
-  @apply px-6 pt-4 flex min-h-screen flex-col items-center justify-between;
-  margin-top: var(--navbar-height);
-  // > section > div {
-  // @apply my-20 w-full max-w-[78rem] px-6 flex flex-col justify-center items-center;
-  // }
-}
-
 .footer {
+  // position: sticky;
+  // bottom: 0;
   width: 100%;
-  max-width: 1350px;
-
+  height: var(--footer-height);
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  row-gap: 16px;
-  padding: 60px 25px;
+  padding: 3rem 1.5rem;
+  & * {
+    max-width: 78rem;
+  }
 }
 
 .footerHeader {

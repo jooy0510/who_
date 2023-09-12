@@ -52,26 +52,18 @@
 }
 
 :root {
-  /* --foreground-rgb: 0, 0, 0; */
-  /* --background-start-rgb: 214, 219, 220; */
-  /* --background-end-rgb: 255, 255, 255; */
   --navbar-height: 4rem;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* --foreground-rgb: 255, 255, 255; */
-    /* --background-start-rgb: 0, 0, 0; */
-    /* --background-end-rgb: 0, 0, 0; */
-  }
+  --footer-height: 10rem;
 }
 
 * {
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
 
-body {
-  /* font-family: "SpoqaHanSansNeo-Regular", "NEXON Lv1 Gothic OTF", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
-  /* color: rgb(var(--foreground-rgb)); */
-  /* background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)); */
+main {
+  @apply px-6 pt-4 flex flex-col items-center justify-start;
+  min-height: calc(100vh - var(--footer-height));
+  padding-top: var(--navbar-height);
+  /* margin-bottom: var(--footer-height); */
+  /* padding-bottom: var(--footer-height); */
 }

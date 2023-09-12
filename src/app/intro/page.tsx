@@ -11,7 +11,7 @@ interface Props {}
 
 export default function IntroPage() {
   return (
-    <div>
+    <main>
       {/* <head className="w-full">소개</head> */}
       <h2 className="w-full text-2xl">소개</h2>
       <div className="w-full grid grid-cols-12">
@@ -41,6 +41,6 @@ export default function IntroPage() {
           <SnsCard></SnsCard>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
