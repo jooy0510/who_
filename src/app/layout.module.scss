@@ -5,3 +5,32 @@
   // @apply my-20 w-full max-w-[78rem] px-6 flex flex-col justify-center items-center;
   // }
 }
+
+.footer {
+  width: 100%;
+  max-width: 1350px;
+
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  row-gap: 16px;
+  padding: 60px 25px;
+}
+
+.footerHeader {
+  font-size: 0.875rem;
+  color: #aaa;
+}
+
+.footerBody {
+  font-size: 0.75rem;
+  color: #797979;
+  white-space: pre-line;
+  line-height: 1.5;
+}
+
+.footerFooter {
+  font-size: 0.6875rem;
+  color: #848a94;
+}

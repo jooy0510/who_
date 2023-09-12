@@ -1,12 +1,6 @@
-import IntroSection from 'src/app/intro/IntroSection';
-import SubmitForm from 'src/components/SubmitForm';
+import IntroSection from 'src/components/IntroSection';
+import SubmitForm from 'src/components/ContactForm';
 
 export default function Home() {
-  return (
-    <div className="">
-      메인페이지
-      <IntroSection></IntroSection>
-      <SubmitForm></SubmitForm>
-    </div>
-  );
+  return <div>메인페이지 - 캘린더</div>;
 }

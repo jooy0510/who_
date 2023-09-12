@@ -10,7 +10,7 @@ import styles from './NavBar.module.scss';
 interface Props {}
 const NAV_MENU_LIST = [
   { title: '소개', href: '/intro' },
-  { title: '찬조신청', href: '/support' },
+  { title: '찬조신청', href: '/contact' },
   { title: '연습현황', href: '/photos' },
 ];
 
