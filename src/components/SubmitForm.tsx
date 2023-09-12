@@ -1,37 +1,53 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Input, Textarea } from "@nextui-org/input";
+import React from 'react';
+import { Button } from '@nextui-org/button';
 
-import cx from "classnames";
-import styles from "./SubmitForm.module.scss";
-import { Button, Card, CardBody, CardFooter, CardHeader, Spacer } from "@nextui-org/react";
-
-interface Props {}
+const FORM_LIST = [
+  { label: '단체, 성함', id: 'name', placeholder: '', multiline: false },
+  { label: '전화번호', id: 'phone', placeholder: '', multiline: false },
+  { label: '지역', id: 'location', placeholder: '', multiline: false },
+  { label: '날짜', id: 'date', placeholder: '', multiline: false },
+];
 
 export default function SubmitForm() {
   return (
-    <Card className="p-4 max-w-[600px] ">
-      <CardHeader>찬조신청</CardHeader>
-      <CardBody>
-        <div className={styles.inputContainer}>
-          <Input className={styles.input} type="text" label="단체 · 성함" labelPlacement="outside-left" />
-          <Input className={styles.input} type="phone" label="전화번호" labelPlacement="outside-left" />
-          <Input className={styles.input} type="text" label="지역" labelPlacement="outside-left" />
-          <Input className={styles.input} type="date" label="날짜" labelPlacement="outside-left" />
-          <Textarea
-            className={styles.textarea}
-            label="요청사항"
-            labelPlacement="outside-left"
-            placeholder="Enter your email"
-            minRows={2}
-          />
-        </div>
-      </CardBody>
-      {/* <h2>WHO 응원단을 위해 </h2> */}
-      <CardFooter>
-        <Button>신청하기</Button>
-      </CardFooter>
-    </Card>
+    <section className="">
+      <div className="my-20 w-full max-w-[78rem] p-6 flex flex-col justify-center items-center min-w-[50%]  rounded-2xl">
+        <h1 className="text-xl font-bold">찬조 신청</h1>
+        <form className="min-w-full flex flex-col  ">
+          {FORM_LIST.map((form) => (
+            <div
+              key={form.id}
+              className="my-4 flex justify-between items-center gap-4"
+            >
+              <label htmlFor={form.id}>{form.label}</label>
+              <input
+                className="w-2/3 bg-gray-100"
+                id="outlined-basic"
+                placeholder={form.placeholder}
+              />
+            </div>
+          ))}
+          <div className="my-4 flex justify-between items-center gap-4">
+            <label htmlFor="요청사항">요청사항</label>
+            <textarea
+              className="w-2/3 bg-gray-100"
+              name="요청사항"
+              id="요청사항"
+              cols={30}
+              rows={10}
+            ></textarea>
+          </div>
+          <Button
+            className="bg-gradient-to-tr from-purple-500 to-blue-500"
+            color="primary"
+            variant="shadow"
+          >
+            submit
+          </Button>
+        </form>
+      </div>
+    </section>
   );
 }

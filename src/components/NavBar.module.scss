@@ -16,8 +16,7 @@
   border-bottom: 1px solid rgb(226, 226, 226);
 }
 .logoText {
-  font-family: "NEXON Lv2 Gothic";
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.5rem;
 }
 .navList {
@@ -28,4 +27,5 @@
 }
 .header {
   @apply w-full h-16 flex justify-between items-center px-6;
+  max-width: 78rem;
 }

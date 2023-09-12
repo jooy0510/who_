@@ -1,4 +1,7 @@
 .main {
   @apply px-6 pt-4 flex min-h-screen flex-col items-center justify-between;
   margin-top: var(--navbar-height);
+  // > section > div {
+  // @apply my-20 w-full max-w-[78rem] px-6 flex flex-col justify-center items-center;
+  // }
 }
