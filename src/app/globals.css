@@ -64,6 +64,4 @@ main {
   @apply px-6 pt-4 flex flex-col items-center justify-start;
   min-height: calc(100vh - var(--footer-height));
   padding-top: var(--navbar-height);
-  /* margin-bottom: var(--footer-height); */
-  /* padding-bottom: var(--footer-height); */
 }

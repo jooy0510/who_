@@ -23,9 +23,7 @@ export default function RootLayout({
       <body className="w-screen">
         <Providers>
           <NavBar></NavBar>
-          {/* <main className={styles.main}> */}
           {children}
-          {/* </main> */}
         </Providers>
         <Footer></Footer>
       </body>

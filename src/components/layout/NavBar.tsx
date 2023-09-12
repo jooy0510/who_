@@ -27,7 +27,7 @@ export default function NavBar() {
           <h2 className={styles.logoText}>WHO</h2>
         </Link>
 
-        <ul className={cx('flex gap-12')}>
+        <ul className={cx('flex gap-4 md:gap-8 lg:gap-12')}>
           {NAV_MENU_LIST.map((menu, index) => (
             <li key={index}>
               <Link href={menu.href}>
