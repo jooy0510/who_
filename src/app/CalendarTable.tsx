@@ -51,9 +51,11 @@ export default function CalendarTable({ list }: { list: any[] }) {
                 return (
                   <TableCell>
                     {data.multi_select &&
-                      data.multi_select.map(({ name }, idx) => (
-                        <span key={idx}>{name}</span>
-                      ))}
+                      data.multi_select.map(
+                        ({ name, key }: { name: string; key: string }) => (
+                          <span key={key}>{name}</span>
+                        )
+                      )}
                   </TableCell>
                 );
               }}
