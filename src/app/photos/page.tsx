@@ -1,25 +1,33 @@
-'use client';
+// 'use client';
 
 import React from 'react';
 
 import cx from 'classnames';
-import styles from './PhotosPage.module.scss';
-import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/react';
+import { NOTION_DATABASE_ID, NOTION_TOKEN } from 'src/config';
+import PhotosList from './PhotosList';
 
 interface Props {}
 
-export default function PhotosPage() {
+export default async function PhotosPage() {
+  const data = await getData();
   return (
     <div>
-      <Card>
-        <CardHeader>버터플라이(릴레이, 액션)</CardHeader>
-        <CardBody></CardBody>
-        <CardFooter>
-          <div className={styles.practiceStatus}></div>
-          소정, 은영, 미진, 진아, 주영, 다현, 혜령, 진서, 강민
-        </CardFooter>
-      </Card>
-      <h1>PhotosPage</h1>
+      <h1 className="font-bold text-lg">응원 현황입니다.</h1>
+      <PhotosList list={data}></PhotosList>
     </div>
   );
+}
+
+async function getData() {
+  const { Client } = require('@notionhq/client');
+
+  const notion = new Client({ auth: NOTION_TOKEN });
+
+  return (async () => {
+    const databaseId = NOTION_DATABASE_ID;
+    const response = await notion.databases.query({
+      database_id: databaseId,
+    });
+    return response.results;
+  })();
 }

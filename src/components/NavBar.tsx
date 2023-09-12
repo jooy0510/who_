@@ -18,7 +18,6 @@ export default function NavBar() {
   const [openNav, setOpenNav] = useState(false);
   const handleOpenNav = () => setOpenNav((prev) => !prev);
   const pathname = usePathname();
-  console.log('pathname : ' + pathname);
 
   return (
     <div className={styles.navBar}>
