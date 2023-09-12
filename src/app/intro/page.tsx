@@ -4,8 +4,6 @@ import React from 'react';
 
 import cx from 'classnames';
 import Image from 'next/image';
-import SnsCard from 'src/components/SnsCard';
-import AwardList from 'src/components/AwardList';
 
 interface Props {}
 
@@ -34,12 +32,8 @@ export default function IntroPage() {
         </div>
       </div>
       <div className="w-full grid grid-cols-12">
-        <div className="col-span-8">
-          <AwardList></AwardList>
-        </div>
-        <div className="col-span-4">
-          <SnsCard></SnsCard>
-        </div>
+        <div className="col-span-8">수상리스트</div>
+        <div className="col-span-4">SNS카드</div>
       </div>
     </main>
   );

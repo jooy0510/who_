@@ -25,13 +25,7 @@ export default function PhotosList({ list }: { list: any[] }) {
             {item.cover == null ? (
               <Animation></Animation>
             ) : (
-              <Image
-                src={item.cover.external.url}
-                alt="연습 사진"
-                // width={200}
-                // height={200}
-                fill
-              ></Image>
+              <Image src={item.cover.external.url} alt="연습 사진" fill></Image>
             )}
           </CardBody>
           <CardHeader className="w-full flex flex-col justify-center align-center">
