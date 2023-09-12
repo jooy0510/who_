@@ -18,7 +18,7 @@ interface Props {}
 
 export default function PhotosList({ list }: { list: any[] }) {
   return (
-    <div className="md:flex md:gap-4 md:flex-wrap md:flex-grow-0 md:flex-shrink-0 justify-center">
+    <div className="md:flex md:gap-4 md:flex-wrap md:flex-grow-0 md:flex-shrink-0 justify-center max-w-[78rem]">
       {list.map((item, idx) => (
         <Card key={item.id} className="w-[18rem] min-h-[18rem] my-4">
           <CardBody className="w-full h-full flex justify-center items-center">
