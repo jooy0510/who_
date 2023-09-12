@@ -3,7 +3,7 @@
 import NavBar from 'src/components/NavBar';
 import { Providers } from './Providers';
 import './globals.css';
-import styles from './layout.module.scss';
+import styles from '@/styles/layout.module.scss';
 import cx from 'classnames';
 import type { Metadata } from 'next';
 
@@ -35,7 +35,7 @@ const Footer = () => {
     <footer
       className={cx(
         styles.footer,
-        'flex justify-center w-full  px-8 py-12 bg-gray-200'
+        'flex justify-center w-full px-8 py-6 md:py-12 bg-gray-200'
       )}
     >
       <div className="max-w-[78rem] w-full flex flex-col justify-start items-start row-gap-4">

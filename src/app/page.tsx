@@ -1,10 +1,16 @@
 import { NOTION_CALENDAR_ID, NOTION_TOKEN } from 'src/config';
 import Calendar from './Calendar';
+import CalendarTable from './CalendarTable';
+import Kalendar from './Kalendar';
 
-export default function Home() {
+export default async function Home() {
+  const data = await getData();
+
   return (
     <main>
-      <Calendar></Calendar>
+      <Kalendar></Kalendar>
+      <Calendar list={data}></Calendar>
+      <CalendarTable list={data}></CalendarTable>
     </main>
   );
 }
@@ -18,14 +24,7 @@ async function getData() {
     const databaseId = NOTION_CALENDAR_ID;
     const response = await notion.databases.query({
       database_id: databaseId,
-      // sorts: [
-      //   {
-      //     property: 'Last ordered',
-      //     direction: 'ascending',å
-      //   },
-      // ],
     });
-    console.log(response.results);
     return response.results;
   })();
 }

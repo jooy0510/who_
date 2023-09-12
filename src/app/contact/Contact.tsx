@@ -15,7 +15,7 @@ interface Props {}
 
 export default function Contact() {
   return (
-    <div className="w-full max-w-[78rem] p-6 flex flex-col justify-center items-center min-w-[50%]  rounded-2xl">
+    <div className="w-full max-w-[78rem] p-2 md:p-6 flex flex-col justify-center items-center min-w-[50%]  rounded-2xl">
       <Card className="w-full">
         <CardHeader className="flex flex-col items-center justify-center">
           <h1 className="text-xl font-bold mb-4">찬조 신청</h1>

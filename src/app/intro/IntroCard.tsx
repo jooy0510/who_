@@ -11,6 +11,7 @@ import {
   CardFooter,
   CardHeader,
   Image,
+  Link,
 } from '@nextui-org/react';
 import AwardList from './AwardList';
 
@@ -18,19 +19,18 @@ interface Props {}
 
 export default function IntroCard() {
   return (
-    <div className="w-full max-w-[78rem] p-6 flex flex-col justify-center items-center min-w-[50%] rounded-2xl">
+    <div className="w-full max-w-[78rem] p-2 md:p-6 flex flex-col justify-center items-center min-w-[50%] rounded-2xl">
       <Card
+        // isBlurred
         isFooterBlurred
         className="w-full h-[300px] col-span-12 sm:col-span-7"
       >
-        <CardHeader className="absolute z-10 top-0 flex-col items-start bg-black/40 border-b-1 border-default-600 dark:border-default-100">
-          <p className="text-tiny text-blue-400 uppercase font-bold">
-            WHO를 소개합니다.
+        <CardFooter className="absolute z-10 top-0 flex-col items-start bg-black/40 border-b-1 border-default-600 dark:border-default-100">
+          <p className="text-tiny text-white/40 uppercase font-bold">
+            SINCE 1999 ~
           </p>
-          <h4 className="text-white/90 font-medium text-xl">
-            Your checklist for better sleep
-          </h4>
-        </CardHeader>
+          <h4 className="text-white/90 font-medium text-xl">WHO 🎉</h4>
+        </CardFooter>
         <Image
           removeWrapper
           alt="Relaxing app background"
@@ -45,14 +45,22 @@ export default function IntroCard() {
               src="/images/breathing-app-icon.jpeg"
             />
             <div className="flex flex-col">
-              <p className="text-tiny text-white/60">Breathing App</p>
-              <p className="text-tiny text-white/60">
-                Get a good night&apos;s sleep.
+              <p className="text-tiny text-white/80">공연, 후원, 찬조는</p>
+              <p className="text-tiny text-white/80">
+                오른쪽 버튼을 눌러주세요 👉
               </p>
             </div>
           </div>
-          <Button radius="full" size="sm">
-            Get App
+          <Button
+            href="/contact"
+            as={Link}
+            radius="full"
+            size="sm"
+            className="bg-gradient-to-tr from-purple-500 to-blue-500"
+            color="primary"
+            variant="shadow"
+          >
+            찬조 신청
           </Button>
         </CardFooter>
       </Card>

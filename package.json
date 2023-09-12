@@ -9,6 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fullcalendar/core": "^6.1.8",
+    "@fullcalendar/daygrid": "^6.1.8",
+    "@fullcalendar/interaction": "^6.1.8",
+    "@fullcalendar/react": "^6.1.8",
+    "@fullcalendar/resource-timeline": "^6.1.8",
+    "@fullcalendar/timegrid": "^6.1.8",
     "@nextui-org/react": "^2.1.12",
     "@notionhq/client": "^2.2.13",
     "@types/aos": "^3.0.4",
@@ -22,6 +28,7 @@
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
     "framer-motion": "^10.16.4",
+    "moment": "^2.29.4",
     "next": "13.4.19",
     "nodemailer": "^6.9.5",
     "postcss": "8.4.29",
