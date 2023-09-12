@@ -6,7 +6,7 @@ import { BsInstagram } from 'react-icons/bs';
 
 interface Props {}
 
-export default function SnsCard({ className }: { className: string }) {
+export default function SnsCard({ className = '' }: { className?: string }) {
   return (
     <div className={cx(className)}>
       <div className="flex justify-around items-center gap-2">

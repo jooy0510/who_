@@ -24,7 +24,6 @@ export default function NavBar() {
     <div className={styles.navBar}>
       <h1 className="hidden">WHO</h1>
       <header className={styles.header}>
-        {/* <header className={styles.header}> */}
         <Link href={'/'}>
           <h2 className={styles.logoText}>WHO</h2>
         </Link>
@@ -36,7 +35,7 @@ export default function NavBar() {
                 <span
                   className={cx(
                     'hover:opacity-100',
-                    pathname == menu.href ? '' : 'opacity-60'
+                    pathname == menu.href ? ' ' : 'opacity-60'
                   )}
                 >
                   {menu.title}
@@ -45,26 +44,7 @@ export default function NavBar() {
             </li>
           ))}
         </ul>
-
-        {/* <div onClick={handleOpenNav}>
-          <GiHamburgerMenu></GiHamburgerMenu>
-        </div> */}
       </header>
-      {/* <div className={cx(styles.modalMask, openNav ? "flex" : "")}></div> */}
-
-      {/* <nav className={cx(openNav ? "translate-x-full" : "translate-x-1/4", styles.navList)}>
-        <ul>
-          <li>
-            <Link href="/intro">소개</Link>
-          </li>
-          <li>
-            <Link href="/support">찬조신청</Link>
-          </li>
-          <li>
-            <Link href="/photos">연습현황</Link>
-          </li>
-        </ul>
-      </nav> */}
     </div>
   );
 }
