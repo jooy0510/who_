@@ -1,12 +1,11 @@
 // "use client";
 
+import NavBar from 'src/components/NavBar';
 import { Providers } from './Providers';
 import './globals.css';
 import styles from './layout.module.scss';
 import cx from 'classnames';
 import type { Metadata } from 'next';
-
-import NavBar from 'src/components/layout/NavBar';
 
 export const metadata: Metadata = {
   title: 'WHO',

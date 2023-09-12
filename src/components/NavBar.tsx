@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 import cx from 'classnames';
-import styles from './NavBar.module.scss';
+import styles from '@/styles/NavBar.module.scss';
 
 interface Props {}
 const NAV_MENU_LIST = [
