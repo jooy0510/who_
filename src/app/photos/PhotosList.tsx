@@ -18,9 +18,9 @@ interface Props {}
 
 export default function PhotosList({ list }: { list: any[] }) {
   return (
-    <div>
+    <div className="md:flex md:gap-4 md:flex-wrap md:flex-grow-0 md:flex-shrink-0 justify-center">
       {list.map((item, idx) => (
-        <Card key={item.id} className="w-full min-w-[20rem] min-h-[20rem] my-4">
+        <Card key={item.id} className="w-[18rem] min-h-[18rem] my-4">
           <CardBody className="w-full h-full flex justify-center items-center">
             {item.cover == null ? (
               <Animation></Animation>
@@ -47,10 +47,8 @@ export default function PhotosList({ list }: { list: any[] }) {
             </div>
             <span className="max-w-[18rem] text-sm opacity-50">
               {item.properties['인원, 구성'].rich_text[0].plain_text}
-              asdfasdfasdfasdfasdfasdfasdfasd
             </span>
           </CardHeader>
-          {/* <CardFooter className="flex flex-col justify-center align-center text-sm w-full opacity-50"></CardFooter> */}
         </Card>
       ))}
     </div>

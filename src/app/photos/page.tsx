@@ -12,8 +12,10 @@ export default async function PhotosPage() {
   const data = await getData();
   return (
     <main>
-      <h1 className="font-bold text-lg">응원 현황입니다.</h1>
-      <PhotosList list={data}></PhotosList>
+      <div className="pt-6 flex flex-col justify-center items-center">
+        <h1 className="font-bold text-lg">WHO 연습 현황</h1>
+        <PhotosList list={data}></PhotosList>
+      </div>
     </main>
   );
 }
