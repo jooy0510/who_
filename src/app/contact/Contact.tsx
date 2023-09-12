@@ -26,22 +26,28 @@ export default function Contact() {
         <CardBody>
           <form className="min-w-full flex flex-col gap-4 ">
             <Input
+              isRequired
+              isClearable
               type="text"
               label="단체 or 성함"
               labelPlacement="outside"
-              placeholder=" "
+              placeholder="강남구청 홍길동"
             />
             <Input
+              isRequired
+              isClearable
               type="phone"
               label="전화번호"
               labelPlacement="outside"
-              placeholder=" "
+              placeholder="010-xxxx-xxxx"
             />
             <Input
+              isRequired
+              isClearable
               type="text"
               label="지역"
               labelPlacement="outside"
-              placeholder=" "
+              placeholder="서울시 강남구"
             />
             <Input
               type="date"
@@ -52,7 +58,7 @@ export default function Contact() {
             <Textarea
               label="요청사항"
               labelPlacement="outside"
-              placeholder=" "
+              placeholder="요청사항을 적어주세요."
               className="w-full"
               rows={3}
             />
