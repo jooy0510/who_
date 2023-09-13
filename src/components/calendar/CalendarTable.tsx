@@ -2,13 +2,7 @@
 
 import React from 'react';
 
-import cx from 'classnames';
-import styles from '.@/styles/CalendarTable.module.scss';
 import {
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
   Table,
   TableBody,
   TableCell,
@@ -18,8 +12,6 @@ import {
   getKeyValue,
 } from '@nextui-org/react';
 import { ScheduleItem } from '@/types/Schedules';
-
-interface Props {}
 
 export default function CalendarTable({ list }: { list: ScheduleItem[] }) {
   const columns = [
@@ -31,6 +23,7 @@ export default function CalendarTable({ list }: { list: ScheduleItem[] }) {
   return (
     <div className="w-[23rem] max-w-[78rem] md:p-6 flex flex-col justify-center items-center rounded-2xl">
       <Table
+        isStriped
         className="max-w-[20rem]"
         aria-label="Example table with dynamic content"
       >
@@ -39,18 +32,26 @@ export default function CalendarTable({ list }: { list: ScheduleItem[] }) {
             <TableColumn key={column.key}>{column.label}</TableColumn>
           )}
         </TableHeader>
-        <TableBody items={list}>
+        <TableBody emptyContent={'이번달 공연이 없습니다.'} items={list}>
           {(item) => (
             <TableRow key={item.key}>
               {(columnKey) => {
                 const data = getKeyValue(item, columnKey);
-                if (data.type == 'title') {
-                  return <TableCell>{data.title[0].plain_text}</TableCell>;
-                } else if (data.type == 'date') {
-                  return <TableCell>{data.date.start}</TableCell>;
+                if (data.type == 'date') {
+                  return (
+                    <TableCell className="text-tiny w-24">
+                      {data.date.start}
+                    </TableCell>
+                  );
+                } else if (data.type == 'title') {
+                  return (
+                    <TableCell className="text-tiny">
+                      {data.title[0].plain_text}
+                    </TableCell>
+                  );
                 }
                 return (
-                  <TableCell>
+                  <TableCell className="text-tiny w-16">
                     {data.multi_select &&
                       data.multi_select.map(
                         ({ name, key }: { name: string; key: string }) => (
