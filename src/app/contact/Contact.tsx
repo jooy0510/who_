@@ -11,7 +11,9 @@ import {
   CardHeader,
   Input,
   Textarea,
+  useDisclosure,
 } from '@nextui-org/react';
+import ModalThanks from './Modal';
 
 interface Props {}
 
@@ -20,14 +22,31 @@ export default function Contact() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
   const handleConfetti = () => {
-    confetti({});
+    confetti({
+      origin: {
+        x: 0.3,
+        y: 0.9,
+      },
+    });
+    confetti({
+      origin: {
+        y: 0.9,
+      },
+    });
+    confetti({
+      origin: {
+        x: 0.7,
+        y: 0.9,
+      },
+    });
   };
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <div className="w-full max-w-[78rem] p-2 md:p-6 flex flex-col justify-center items-center min-w-[50%] rounded-2xl">
-      <Button onClick={handleConfetti}>d</Button>
       <Card className="w-full">
         <CardHeader className="flex flex-col items-center justify-center">
           <h1 className="text-xl font-bold mb-4">찬조 신청</h1>
@@ -40,7 +59,11 @@ export default function Contact() {
             className="min-w-full flex flex-col gap-4"
             onSubmit={handleSubmit((data) =>
               sendContactEmail(data)
-                .then((res) => handleConfetti())
+                .then((res) => {
+                  reset();
+                  handleConfetti();
+                  onOpen();
+                })
                 .catch(() => alert('다시!'))
             )}
           >
@@ -118,6 +141,11 @@ export default function Contact() {
           </form>
         </CardBody>
       </Card>
+      <ModalThanks
+        isOpen={isOpen}
+        onOpen={onOpen}
+        onOpenChange={onOpenChange}
+      ></ModalThanks>
     </div>
   );
 }
