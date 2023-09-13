@@ -3,7 +3,7 @@
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   .calendarHeaderCell {
-    @apply p-2 h-8 w-12;
+    @apply p-2 h-8 w-10;
   }
 }
 .calendarBody {
@@ -12,7 +12,7 @@
   .row {
     @apply w-full  flex justify-around;
     .cell {
-      @apply p-0 h-14 w-12 text-xs;
+      @apply p-0 h-14 w-10 text-xs;
       border: 0.1px solid #eee;
     }
     .cell-일 {

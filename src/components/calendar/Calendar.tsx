@@ -17,6 +17,7 @@ import {
   TableHeader,
   TableRow,
   getKeyValue,
+  Tooltip,
 } from '@nextui-org/react';
 import moment from 'moment';
 import useCalendar from '@/components/hooks/useCalendar';
@@ -30,7 +31,7 @@ export default function Calendar({ list }: { list: ScheduleItem[] }) {
   const { getMoment, setMoment, dayArray } = useCalendar({ list });
   return (
     <div className="w-full max-w-[78rem] p-2 md:p-6 flex flex-col justify-center items-center min-w-[50%] rounded-2xl">
-      <Card className="w-full">
+      <Card className="max-w-[21rem]">
         <CardBody>
           <h2 className="font-[500] text-lg pb-2">
             {getMoment.year()}년{getMoment.month() + 1}월 스케쥴
@@ -50,7 +51,6 @@ export default function Calendar({ list }: { list: ScheduleItem[] }) {
             ))}
           </div>
         </CardBody>
-        <CardFooter>카드푸터</CardFooter>
       </Card>
     </div>
   );
@@ -69,17 +69,26 @@ function CalendarWeek({ week }: { week: any[] }) {
               {day.schedules.map((schedule: any) => {
                 console.log(schedule);
                 return (
-                  <Chip
-                    key={schedule.key}
-                    size="sm"
-                    color="primary"
-                    classNames={{
-                      base: 'bg-gradient-to-br from-indigo-500 to-pink-500 border-small border-white/50 shadow-pink-500/30',
-                      content: 'drop-shadow shadow-black text-white text-xs',
-                    }}
+                  <Tooltip
+                    key={'foreground'}
+                    color={'default'}
+                    content={schedule.이름.title[0].plain_text}
+                    className="capitalize"
                   >
-                    {schedule.이름.title[0].plain_text}
-                  </Chip>
+                    <Chip
+                      key={schedule.key}
+                      size="sm"
+                      color="secondary"
+                      classNames={{
+                        base: 'p-[0.1rem] h-[1rem] rounded-none ',
+                        // base: 'p-[0.1rem] h-[0.75rem] rounded-none bg-gradient-to-br from-indigo-500 to-pink-500 border-small border-white/50 shadow-pink-500/30',
+                        content:
+                          'drop-shadow shadow-black text-white text-[0.6rem]',
+                      }}
+                    >
+                      {schedule.이름.title[0].plain_text}
+                    </Chip>
+                  </Tooltip>
                 );
               })}
             </p>

@@ -29,8 +29,11 @@ export default function CalendarTable({ list }: { list: ScheduleItem[] }) {
   ];
 
   return (
-    <div className="w-full max-w-[78rem] p-2 md:p-6 flex flex-col justify-center items-center min-w-[50%] rounded-2xl">
-      <Table aria-label="Example table with dynamic content">
+    <div className="w-[23rem] max-w-[78rem] md:p-6 flex flex-col justify-center items-center rounded-2xl">
+      <Table
+        className="max-w-[20rem]"
+        aria-label="Example table with dynamic content"
+      >
         <TableHeader columns={columns}>
           {(column) => (
             <TableColumn key={column.key}>{column.label}</TableColumn>
