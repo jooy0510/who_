@@ -36,11 +36,11 @@ export default function ModalThanks({
               {isSuccess ? (
                 <>
                   <ModalHeader className="flex flex-col gap-1">
-                    🎉🎉 감사합니다..! 🎉🎉
+                    🎉🎉 전송 성공 🎉🎉
                   </ModalHeader>
                   <ModalBody>
-                    <p>찬조 신청이 전달되었습니다..!</p>
-                    <p>저희측에서 빠른 시일내에 연락드리겠습니다.</p>
+                    <p>찬조 신청이 전달되었습니다.</p>
+                    <p>빠른 시일내에 연락드리겠습니다.</p>
                     <p>감사합니다 🎉</p>
                   </ModalBody>
                   <ModalFooter>
@@ -59,12 +59,12 @@ export default function ModalThanks({
               ) : (
                 <>
                   <ModalHeader className="flex flex-col gap-1">
-                    전송 실패...🥲
+                    전송 실패 🥲
                   </ModalHeader>
                   <ModalBody>
-                    <p>문제가 발생해 메일전송이 실패했습니다..!</p>
-                    <p>다시 시도해주세요..!</p>
-                    <p>계속 문제 발생시 연락처로 직접 연락부탁드립니다..!</p>
+                    <p>문제가 발생해 메일전송이 실패했습니다.</p>
+                    <p>다시 시도해주세요.</p>
+                    <p>계속 문제 발생시 연락처로 직접 연락부탁드립니다.</p>
                   </ModalBody>
                   <ModalFooter>
                     <Button color="primary" onPress={onClose}>
