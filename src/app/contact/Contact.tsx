@@ -13,17 +13,19 @@ import {
   Textarea,
   useDisclosure,
 } from '@nextui-org/react';
-import ModalThanks from './Modal';
+import ModalThanks from './ModalThanks';
 
 interface Props {}
 
 export default function Contact() {
+  // const [isLoading, setIsLoading] = useState(false);
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     reset,
   } = useForm();
+
   const handleConfetti = () => {
     confetti({
       origin: {
@@ -44,6 +46,8 @@ export default function Contact() {
     });
   };
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [isSuccess, setIsSuccess] = useState(false);
+  console.log(isSuccess);
 
   return (
     <div className="w-full max-w-[78rem] p-2 md:p-6 flex flex-col justify-center items-center min-w-[50%] rounded-2xl">
@@ -62,9 +66,10 @@ export default function Contact() {
                 .then((res) => {
                   reset();
                   handleConfetti();
-                  onOpen();
+                  setIsSuccess(true);
                 })
-                .catch(() => alert('다시!'))
+                .catch((err) => {})
+                .finally(() => onOpen())
             )}
           >
             <Input
@@ -135,6 +140,7 @@ export default function Contact() {
               className="bg-gradient-to-tr from-purple-500 to-blue-500"
               color="primary"
               variant="shadow"
+              isDisabled={isSubmitting}
             >
               이메일 전송
             </Button>
@@ -142,6 +148,7 @@ export default function Contact() {
         </CardBody>
       </Card>
       <ModalThanks
+        isSuccess={isSuccess}
         isOpen={isOpen}
         onOpen={onOpen}
         onOpenChange={onOpenChange}
@@ -165,15 +172,6 @@ export async function sendContactEmail(emailForm: any) {
 
   if (!response.ok) {
     throw new Error(data.message || '서버 요청에 실패함');
-  }
-  console.log(data);
-  console.log(global);
-
-  if (data.message == 'sucess') {
-    // 축포 터뜨리고
-    // 감사합니다로 넘어가기??
-  } else {
-    // 다시 해달라고 띄우기??
   }
 
   return data;

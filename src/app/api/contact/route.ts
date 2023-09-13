@@ -1,4 +1,5 @@
 import { GMAIL_APP_PASSWORD, GMAIL_ID } from '@/config';
+import { NextResponse } from 'next/server';
 const nodemailer = require('nodemailer');
 
 export type EmailData = {
@@ -12,20 +13,16 @@ export type EmailData = {
 export async function POST(req: Request) {
   const body = await req.json();
 
-  return sendEmail(body)
-    .then(
-      () =>
-        new Response(JSON.stringify({ message: 'sucess' }), {
-          status: 200,
-        })
-    )
-    .catch((error) => {
-      console.error(error);
-
-      return new Response(JSON.stringify({ message: 'fail' }), {
-        status: 500,
-      });
+  try {
+    const res = await sendEmail(body);
+    return new NextResponse(JSON.stringify({ message: 'sucess' }), {
+      status: 200,
     });
+  } catch (err) {
+    return new NextResponse(JSON.stringify({ message: 'fail' }), {
+      status: 500,
+    });
+  }
 }
 
 const transporter = nodemailer.createTransport({
@@ -41,13 +38,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // export async function sendEmail({ name, phone, location, date }: EmailData) {
-export async function sendEmail({
-  name,
-  phone,
-  location,
-  date,
-  etc,
-}: EmailData) {
+async function sendEmail({ name, phone, location, date, etc }: EmailData) {
   const subject = `[찬조신청] ${location} ${name} ${phone}`;
   const to = `${GMAIL_ID}@gmail.com`;
   const from = name;
