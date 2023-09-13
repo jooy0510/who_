@@ -24,7 +24,7 @@ interface Props {}
 
 export default function Calendar({ list }: { list: any[] }) {
   const { getMoment, setMoment, dayArray } = useCalendar();
-  console.log(dayArray);
+
   return (
     <div className="w-full max-w-[78rem] p-2 md:p-6 flex flex-col justify-center items-center min-w-[50%] rounded-2xl">
       <Card className="w-full">
