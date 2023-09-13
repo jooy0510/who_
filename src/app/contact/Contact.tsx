@@ -47,7 +47,6 @@ export default function Contact() {
   };
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [isSuccess, setIsSuccess] = useState(false);
-  console.log(isSuccess);
 
   return (
     <div className="w-full max-w-[78rem] p-2 md:p-6 flex flex-col justify-center items-center min-w-[50%] rounded-2xl">
