@@ -17,13 +17,11 @@ import {
   TableRow,
   getKeyValue,
 } from '@nextui-org/react';
+import { ScheduleItem } from '@/types/Schedules';
 
 interface Props {}
 
-export default function CalendarTable({ list }: { list: any[] }) {
-  const rows = list.map(({ id, properties }, idx, arr) => {
-    return { ...properties, key: id };
-  });
+export default function CalendarTable({ list }: { list: ScheduleItem[] }) {
   const columns = [
     { key: '날짜', label: '날짜' },
     { key: '태그', label: '태그' },
@@ -38,7 +36,7 @@ export default function CalendarTable({ list }: { list: any[] }) {
             <TableColumn key={column.key}>{column.label}</TableColumn>
           )}
         </TableHeader>
-        <TableBody items={rows}>
+        <TableBody items={list}>
           {(item) => (
             <TableRow key={item.key}>
               {(columnKey) => {

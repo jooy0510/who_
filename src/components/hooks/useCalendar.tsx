@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import styles from '.@/styles/useCalendar.module.scss';
 import moment from 'moment';
+import { ScheduleItem } from '@/types/Schedules';
 
 interface Props {}
 
-export default function useCalendar() {
+export default function useCalendar({ list }: { list: any[] }) {
   const [getMoment, setMoment] = useState(moment()); // 오늘
   const today = getMoment; // 오늘
 
@@ -24,7 +25,7 @@ export default function useCalendar() {
 
     // 이번 달 배열에 담기
     let week = todayFirstWeek;
-    let result = []; // 이번 달 배열
+    let result: any = []; // 이번 달 배열
     for (week; week <= todayLastWeek; week++) {
       let weekArray: any[] = []; // 주 별로 배열에 담음
       for (var i = 0; i < 7; i++) {
@@ -40,8 +41,10 @@ export default function useCalendar() {
           weekArray.push({
             Index: i,
             day: days.format('YYYY-MM-DD'),
+            schedules: [],
             work: '',
             tardy: '',
+            className: 'text-purple-500',
             css: {
               color: '',
               bgColor: 'lightpink',
@@ -56,8 +59,10 @@ export default function useCalendar() {
           weekArray.push({
             Index: i,
             day: days.format('YYYY-MM-DD'),
+            schedules: [],
             work: '',
             tardy: '',
+            className: 'opacity-20',
             css: {
               color: '',
               bgColor: 'white',
@@ -71,8 +76,10 @@ export default function useCalendar() {
           weekArray.push({
             Index: i,
             day: days.format('YYYY-MM-DD'),
+            schedules: [],
             work: '',
             tardy: '',
+            className: '',
             css: {
               color: '',
               bgColor: 'lightgrey',
@@ -88,6 +95,11 @@ export default function useCalendar() {
       result.push(weekArray);
     }
 
+    list.forEach((item) => {
+      const scheduledDay = item.날짜.date.start;
+      setSchedule({ scheduledDay, weeks: result, scheduledItem: item });
+    });
+
     setDayArray(result);
   }, []);
 
@@ -96,4 +108,23 @@ export default function useCalendar() {
     setMoment,
     dayArray,
   };
+}
+function setSchedule({
+  scheduledDay,
+  weeks,
+  scheduledItem,
+}: {
+  scheduledDay: string;
+  weeks: any[];
+  scheduledItem: ScheduleItem;
+}) {
+  for (let i = 0; i < weeks.length; i++) {
+    const week = weeks[i];
+    for (let j = 0; j < week.length; j++) {
+      const day = week[j];
+      if (day.day == scheduledDay) {
+        weeks[i][j].schedules.push(scheduledItem);
+      }
+    }
+  }
 }
