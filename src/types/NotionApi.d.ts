@@ -8,8 +8,8 @@ export interface NotionDatabaseResults {
   };
 }
 
-interface Cover {
-  external: {
+export interface Cover {
+  [key: string]: {
     url: string;
   };
 }

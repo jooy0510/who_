@@ -15,15 +15,21 @@ export default async function PhotosPage() {
 }
 
 async function getData() {
-  const { Client } = require('@notionhq/client');
-
-  const notion = new Client({ auth: NOTION_TOKEN });
-
-  return (async () => {
-    const databaseId = NOTION_DATABASE_ID;
-    const response = await notion.databases.query({
-      database_id: databaseId,
-    });
-    return response.results;
-  })();
+  const options = {
+    next: { revalidate: 60 },
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'Notion-Version': '2022-06-28',
+      'content-type': 'application/json',
+      Authorization: `Bearer ${NOTION_TOKEN}`,
+    },
+    body: JSON.stringify({ page_size: 100 }),
+  };
+  const response = await fetch(
+    `https://api.notion.com/v1/databases/${NOTION_DATABASE_ID}/query`,
+    options
+  );
+  const data = await response.json();
+  return data.results;
 }

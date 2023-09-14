@@ -1,7 +1,7 @@
 'use client';
 
 import styles from '@/styles/photos/PhotosList.module.scss';
-import { NotionDatabaseResults } from '@/types/NotionApi';
+import { Cover, NotionDatabaseResults } from '@/types/NotionApi';
 import { Button, Card, CardBody, CardHeader } from '@nextui-org/react';
 import Image from 'next/image';
 import Animation from 'src/components/Animation';
@@ -19,7 +19,7 @@ export default function PhotosList({ list }: Props) {
             {cover == null ? (
               <Animation></Animation>
             ) : (
-              <Image src={cover.external.url} alt="연습 사진" fill></Image>
+              <NotionImage cover={cover}></NotionImage>
             )}
           </CardBody>
           <CardHeader className="w-full flex flex-col justify-center align-center">
@@ -42,5 +42,17 @@ export default function PhotosList({ list }: Props) {
         </Card>
       ))}
     </div>
+  );
+}
+
+function NotionImage({ cover }: { cover: Cover }) {
+  const keys = Object.keys(cover);
+
+  return (
+    <>
+      {keys.map((key, idx) => (
+        <Image key={idx} src={cover[key].url} alt="연습 사진" fill></Image>
+      ))}
+    </>
   );
 }
