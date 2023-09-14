@@ -5,34 +5,30 @@ import { ScheduleItem } from '@/types/NotionApi';
 interface Props {}
 
 export default function useCalendar({ list }: { list: any[] }) {
-  const [getMoment, setMoment] = useState(moment()); // 오늘
-  const today = getMoment; // 오늘
+  const [getMoment, setMoment] = useState(moment());
+  const today = getMoment;
 
-  const todayFirstWeek = today.clone().startOf('month').week(); // 이번달의 첫째 주
+  const todayFirstWeek = today.clone().startOf('month').week();
   const todayLastWeek =
     today.clone().endOf('month').week() === 1
       ? 53
-      : today.clone().endOf('month').week(); // 이번달의 마지막 주
+      : today.clone().endOf('month').week();
 
-  const [dayArray, setDayArray] = useState<any>([]); // 날짜들이 가지는 상태값들 모아둔 배열
+  const [dayArray, setDayArray] = useState<any>([]);
 
   useEffect(() => {
-    // 고유 인덱스 번호
     let Index = 0;
-
-    // 이번 달 배열에 담기
     let week = todayFirstWeek;
-    let result: any = []; // 이번 달 배열
+    let result: any = [];
     for (week; week <= todayLastWeek; week++) {
-      let weekArray: any[] = []; // 주 별로 배열에 담음
+      let weekArray: any[] = [];
       for (var i = 0; i < 7; i++) {
-        // 7번 반복(일주일)
         let days = today
           .clone()
           .startOf('year')
           .week(week)
           .startOf('week')
-          .add(i, 'day'); // 그날의 시간 정보
+          .add(i, 'day');
         if (moment().format('YYYYMMDD') === days.format('YYYYMMDD')) {
           // 현재날짜일 경우
           weekArray.push({

@@ -42,8 +42,6 @@ export default function Calendar({ list }: { list: ScheduleItem[] }) {
 }
 
 function CalendarWeek({ week }: { week: any[] }) {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div className={cx(styles.row)}>
       {week.map((day, idx) => {
@@ -57,9 +55,6 @@ function CalendarWeek({ week }: { week: any[] }) {
                 return (
                   <Tooltip
                     key={'foreground'}
-                    isOpen={isOpen}
-                    onOpenChange={(open) => setIsOpen(open)}
-                    onClick={() => setIsOpen(true)}
                     color={'default'}
                     content={schedule.이름.title[0].plain_text}
                     className="capitalize"
@@ -70,7 +65,6 @@ function CalendarWeek({ week }: { week: any[] }) {
                       color="secondary"
                       classNames={{
                         base: 'p-[0.1rem] h-[1rem] rounded-none ',
-                        // base: 'p-[0.1rem] h-[0.75rem] rounded-none bg-gradient-to-br from-indigo-500 to-pink-500 border-small border-white/50 shadow-pink-500/30',
                         content:
                           'drop-shadow shadow-black text-white text-[0.6rem]',
                       }}
