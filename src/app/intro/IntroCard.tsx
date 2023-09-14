@@ -2,18 +2,7 @@
 
 import React from 'react';
 
-import cx from 'classnames';
-import styles from './IntroCard.module.scss';
-import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Image,
-  Link,
-} from '@nextui-org/react';
-import AwardList from './AwardList';
+import { Button, Card, CardFooter, Image, Link } from '@nextui-org/react';
 
 interface Props {}
 
@@ -21,7 +10,6 @@ export default function IntroCard() {
   return (
     <div className="w-full max-w-[78rem] p-2 md:p-6 flex flex-col justify-center items-center min-w-[50%] rounded-2xl">
       <Card
-        // isBlurred
         isFooterBlurred
         className="w-full h-[300px] col-span-12 sm:col-span-7"
       >
@@ -64,34 +52,6 @@ export default function IntroCard() {
           </Button>
         </CardFooter>
       </Card>
-
-      {/* <Card className="w-full">
-        <CardHeader>
-          <h2 className="w-full text-2xl">소개</h2>
-        </CardHeader>
-        <CardBody>
-          <div className="w-full grid grid-cols-12">
-            <div className="col-span-4">
-              <p>WHO</p>
-              <p>SINCE 1999~</p>
-            </div>
-            <div className="col-span-4">
-              <Image
-                src="/images/logo.jpg"
-                width={150}
-                height={150}
-                priority
-                alt="who logo"
-              ></Image>
-            </div>
-            <div className="col-span-4">
-              <p>WHO는 이러이러한 응원단입니다.</p>
-              <p>펭귄코딩이 만든 홈페이지입니다.</p>
-            </div>
-          </div>
-        </CardBody>
-        <CardFooter></CardFooter>
-      </Card> */}
     </div>
   );
 }

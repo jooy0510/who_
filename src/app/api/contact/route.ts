@@ -15,10 +15,11 @@ export async function POST(req: Request) {
 
   try {
     const res = await sendEmail(body);
-    return new NextResponse(JSON.stringify({ message: 'sucess' }), {
+    return new NextResponse(JSON.stringify({ message: 'success' }), {
       status: 200,
     });
   } catch (err) {
+    console.error(err);
     return new NextResponse(JSON.stringify({ message: 'fail' }), {
       status: 500,
     });
@@ -27,26 +28,23 @@ export async function POST(req: Request) {
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
-  // 아래 secure 옵션을 사용하려면 465 포트를 사용해야함
   port: 465,
-  secure: true, // true for 465, false for other ports
+  secure: true,
   auth: {
-    // 초기에 설정해둔 env 데이터
     user: GMAIL_ID,
     pass: GMAIL_APP_PASSWORD,
   },
 });
 
-// export async function sendEmail({ name, phone, location, date }: EmailData) {
 async function sendEmail({ name, phone, location, date, etc }: EmailData) {
-  const subject = `[찬조신청] ${location} ${name} ${phone}`;
+  const subject = `[찬조신청] ${location} ${name}`;
   const to = `${GMAIL_ID}@gmail.com`;
   const from = name;
   const html = `
   <div style='margin:20px;'>
-    <h1>찬조신청 메일입니다.</h1>
+    <h2>찬조신청 메일입니다. 🥳</h2>
     <br>
-    <div align='center' style='border:1px solid black); font-family:verdana');>
+    <div align='left' style='border:1px solid black); font-family:verdana');>
       <div>
         <p>성함, 단체 : ${name}</p>
         <p>전화 번호 : ${phone}</p>

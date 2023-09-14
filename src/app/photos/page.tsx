@@ -1,15 +1,9 @@
-// 'use client';
-
-import React from 'react';
-
-import cx from 'classnames';
 import { NOTION_DATABASE_ID, NOTION_TOKEN } from 'src/config';
 import PhotosList from './PhotosList';
-
-interface Props {}
+import { NotionDatabaseResults } from '@/types/NotionApi';
 
 export default async function PhotosPage() {
-  const data = await getData();
+  const data: NotionDatabaseResults[] = await getData();
   return (
     <main>
       <div className="pt-6 flex flex-col justify-center items-center">

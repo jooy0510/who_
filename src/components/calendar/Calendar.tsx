@@ -1,27 +1,12 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import cx from 'classnames';
 import styles from '@/styles/Calendar.module.scss';
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Chip,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow,
-  getKeyValue,
-  Tooltip,
-} from '@nextui-org/react';
-import moment from 'moment';
+import { Card, CardBody, Chip, Tooltip } from '@nextui-org/react';
 import useCalendar from '@/components/hooks/useCalendar';
-import { ScheduleItem } from '@/types/Schedules';
+import { ScheduleItem } from '@/types/NotionApi';
 
 interface Props {}
 
@@ -57,6 +42,8 @@ export default function Calendar({ list }: { list: ScheduleItem[] }) {
 }
 
 function CalendarWeek({ week }: { week: any[] }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className={cx(styles.row)}>
       {week.map((day, idx) => {
@@ -67,10 +54,12 @@ function CalendarWeek({ week }: { week: any[] }) {
             </p>
             <p className={cx('text-xs overflow-hidden', day.className)}>
               {day.schedules.map((schedule: any) => {
-                console.log(schedule);
                 return (
                   <Tooltip
                     key={'foreground'}
+                    isOpen={isOpen}
+                    onOpenChange={(open) => setIsOpen(open)}
+                    onClick={() => setIsOpen(true)}
                     color={'default'}
                     content={schedule.이름.title[0].plain_text}
                     className="capitalize"

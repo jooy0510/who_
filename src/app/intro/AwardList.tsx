@@ -1,9 +1,5 @@
 'use client';
 
-import React from 'react';
-
-import cx from 'classnames';
-import styles from './AwardList.module.scss';
 import {
   Card,
   CardBody,
@@ -19,10 +15,9 @@ export default function AwardList() {
     <div className="w-full max-w-[78rem] p-2 md:p-6 flex flex-col justify-center items-center min-w-[50%] rounded-2xl">
       <Card className="w-full">
         <CardHeader className="font-bold text-lg">
-          <h2>수상 실적</h2>
+          <h2>수상 실적 🏅</h2>
         </CardHeader>
         <Divider></Divider>
-        {/* <CardBody> */}
         <CardBody className="grid grid-cols-12 text-sm">
           <div className="col-span-6">
             <p>🥇서울시 페스티벌 금상</p>

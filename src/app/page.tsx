@@ -1,12 +1,10 @@
 import { NOTION_CALENDAR_ID, NOTION_TOKEN } from 'src/config';
-import { ScheduleItem } from '@/types/Schedules';
 import Calendar from '@/components/calendar/Calendar';
 import CalendarTable from '@/components/calendar/CalendarTable';
+import { ScheduleItem } from '@/types/NotionApi';
 
 export default async function Home() {
   const list = await getData();
-  console.log('###list');
-  console.log(list);
 
   return (
     <main>
@@ -24,7 +22,6 @@ async function getData() {
 
   return (async () => {
     const databaseId = NOTION_CALENDAR_ID;
-    console.log();
     const response = await notion.databases.query({
       database_id: databaseId,
       filter: {

@@ -2,8 +2,6 @@
 
 import React from 'react';
 
-import cx from 'classnames';
-import styles from './SnsCard.module.scss';
 import {
   Card,
   CardBody,
@@ -11,12 +9,9 @@ import {
   Divider,
   Image,
   Link,
-  User,
 } from '@nextui-org/react';
 import { BsInstagram, BsPhone } from 'react-icons/bs';
-import { BiLogoInstagramAlt } from 'react-icons/bi';
-
-interface Props {}
+import { INFO_INSTA, INFO_PHONE } from '@/config';
 
 export default function SnsCard() {
   return (
@@ -35,18 +30,18 @@ export default function SnsCard() {
             <Link href="https://instagram.com" size="sm" isExternal>
               <p className="text-small text-default-500 flex justify-start items-center gap-2">
                 <BsInstagram></BsInstagram>
-                <span>Insta : who_insta_juso</span>
+                <span>Insta : {INFO_INSTA}</span>
               </p>
             </Link>
             <p className="text-small text-default-500 flex justify-start items-center gap-2">
               <BsPhone></BsPhone>
-              <span>phone : 010-0000-0000</span>
+              <span>phone : {INFO_PHONE}</span>
             </p>
           </div>
         </CardHeader>
         <Divider />
         <CardBody>
-          <p className="text-sm">대학생 응원단 WHO</p>
+          <p className="text-sm">고등학생 응원단 WHO</p>
         </CardBody>
       </Card>
     </div>

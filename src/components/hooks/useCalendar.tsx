@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react';
-
-import cx from 'classnames';
-import styles from '.@/styles/useCalendar.module.scss';
+import { useEffect, useState } from 'react';
 import moment from 'moment';
-import { ScheduleItem } from '@/types/Schedules';
+import { ScheduleItem } from '@/types/NotionApi';
 
 interface Props {}
 

@@ -1,10 +1,5 @@
-'use client';
-
-import React from 'react';
 import Contact from './Contact';
 import SnsCard from './SnsCard';
-
-interface Props {}
 
 export default function SupportPage() {
   return (

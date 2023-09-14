@@ -1,13 +1,7 @@
-import React from 'react';
-
-import cx from 'classnames';
-import Image from 'next/image';
 import IntroCard from './IntroCard';
 import SnsCard from '../contact/SnsCard';
 import AwardList from './AwardList';
 import IntroText from './IntroText';
-
-interface Props {}
 
 export default function IntroPage() {
   return (

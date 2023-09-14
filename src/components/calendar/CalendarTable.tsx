@@ -11,7 +11,7 @@ import {
   TableRow,
   getKeyValue,
 } from '@nextui-org/react';
-import { ScheduleItem } from '@/types/Schedules';
+import { ScheduleItem } from '@/types/NotionApi';
 
 export default function CalendarTable({ list }: { list: ScheduleItem[] }) {
   const columns = [

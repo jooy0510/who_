@@ -1,7 +1,3 @@
-import React from 'react';
-
-import cx from 'classnames';
-import styles from '.@/styles/ModalThanks.module.scss';
 import {
   Modal,
   ModalContent,
@@ -9,23 +5,22 @@ import {
   ModalBody,
   ModalFooter,
   Button,
-  useDisclosure,
 } from '@nextui-org/react';
 import { useRouter } from 'next/navigation';
 
-interface Props {}
+interface Props {
+  isSuccess: boolean;
+  isOpen: boolean;
+  onOpen: any;
+  onOpenChange: any;
+}
 
 export default function ModalThanks({
   isSuccess,
   isOpen,
   onOpen,
   onOpenChange,
-}: {
-  isSuccess: boolean;
-  isOpen: any;
-  onOpen: any;
-  onOpenChange: any;
-}) {
+}: Props) {
   const router = useRouter();
   return (
     <>

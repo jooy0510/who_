@@ -1,13 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 import cx from 'classnames';
 import styles from '@/styles/NavBar.module.scss';
 
-interface Props {}
 const NAV_MENU_LIST = [
   { title: '소개', href: '/intro' },
   { title: '찬조신청', href: '/contact' },
@@ -15,8 +13,6 @@ const NAV_MENU_LIST = [
 ];
 
 export default function NavBar() {
-  const [openNav, setOpenNav] = useState(false);
-  const handleOpenNav = () => setOpenNav((prev) => !prev);
   const pathname = usePathname();
 
   return (
@@ -34,7 +30,7 @@ export default function NavBar() {
                 <span
                   className={cx(
                     'hover:opacity-100',
-                    pathname == menu.href ? ' ' : 'opacity-60'
+                    pathname == menu.href ? '' : 'opacity-60'
                   )}
                 >
                   {menu.title}

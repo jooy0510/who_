@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+'use client';
 
-import cx from 'classnames';
-import styles from './Contact.module.scss';
-import confetti from 'canvas-confetti';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import {
   Button,
   Card,
@@ -14,39 +12,19 @@ import {
   useDisclosure,
 } from '@nextui-org/react';
 import ModalThanks from './ModalThanks';
-
-interface Props {}
+import { handleConfetti } from '@/config/handleConfetti';
+import { EmailForm } from '@/types/Contact';
+import { validations } from '@/config/validations';
 
 export default function Contact() {
-  // const [isLoading, setIsLoading] = useState(false);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [isSuccess, setIsSuccess] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
   } = useForm();
-
-  const handleConfetti = () => {
-    confetti({
-      origin: {
-        x: 0.3,
-        y: 0.9,
-      },
-    });
-    confetti({
-      origin: {
-        y: 0.9,
-      },
-    });
-    confetti({
-      origin: {
-        x: 0.7,
-        y: 0.9,
-      },
-    });
-  };
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [isSuccess, setIsSuccess] = useState(false);
 
   return (
     <div className="w-full max-w-[78rem] p-2 md:p-6 flex flex-col justify-center items-center min-w-[50%] rounded-2xl">
@@ -61,7 +39,7 @@ export default function Contact() {
           <form
             className="min-w-full flex flex-col gap-4"
             onSubmit={handleSubmit((data) =>
-              sendContactEmail(data)
+              sendContactEmail(data as EmailForm)
                 .then((res) => {
                   reset();
                   handleConfetti();
@@ -72,28 +50,21 @@ export default function Contact() {
             )}
           >
             <Input
-              {...register('name', { pattern: /^.{0,20}$/ })}
+              {...register('name', { pattern: validations.name.pattern })}
               isRequired
               isClearable
               type="text"
               label="단체 or 성함"
               labelPlacement="outside"
-              placeholder="강남구청 홍길동"
+              placeholder="수원시청 홍길동"
               color={errors.name && 'danger'}
-              errorMessage={
-                errors.name && '20글자 이내의 단체명을 사용해주세요..!'
-              }
+              errorMessage={errors.name && validations.name.errorMessage}
               maxLength={20}
             />
             <Input
-              {...register('phone', {
-                pattern:
-                  /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/,
-              })}
+              {...register('phone', { pattern: validations.phone.pattern })}
               color={errors.phone && 'danger'}
-              errorMessage={
-                errors.phone && '전화번호 형식에 맞게 입력해주세요..!'
-              }
+              errorMessage={errors.phone && validations.phone.errorMessage}
               isRequired
               isClearable
               type="phone"
@@ -103,10 +74,12 @@ export default function Contact() {
             />
             <Input
               {...register('location', {
-                pattern: /^.{0,50}$/,
+                pattern: validations.location.pattern,
               })}
               color={errors.location && 'danger'}
-              errorMessage={errors.location && '50글자 이하로 입력해주세요..!'}
+              errorMessage={
+                errors.location && validations.location.errorMessage
+              }
               isRequired
               isClearable
               type="text"
@@ -122,11 +95,9 @@ export default function Contact() {
               placeholder=" "
             />
             <Textarea
-              {...register('etc', {
-                pattern: /^.{0,1000}$/,
-              })}
+              {...register('etc', { pattern: validations.etc.pattern })}
               color={errors.etc && 'danger'}
-              errorMessage={errors.etc && '1000자 이내로 작성해주세요..!'}
+              errorMessage={errors.etc && validations.etc.errorMessage}
               label="요청사항"
               labelPlacement="outside"
               placeholder="요청사항을 적어주세요."
@@ -156,9 +127,7 @@ export default function Contact() {
   );
 }
 
-// export async function sendContactEmail(emailForm: EmailData) {
-export async function sendContactEmail(emailForm: any) {
-  // Nextjs app 폴더 내 api로 post 요청
+export async function sendContactEmail(emailForm: EmailForm) {
   const response = await fetch('/api/contact', {
     method: 'POST',
     body: JSON.stringify(emailForm),
