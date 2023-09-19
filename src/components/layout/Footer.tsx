@@ -19,7 +19,7 @@ export default function Footer() {
           <span>주소 : {INFO_ADDRESS}</span>
         </p>
         <p className={styles.footerFooter}>
-          Copyright ⓒ Penguin Coding. All Rights Reserved
+          Copyright ⓒ Penguin Coding, mute_s.x. All Rights Reserved
         </p>
       </div>
     </footer>
