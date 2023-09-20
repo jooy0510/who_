@@ -19,7 +19,7 @@ export default function Calendar({ list }: { list: ScheduleItem[] }) {
       <Card className="max-w-[21rem]">
         <CardBody>
           <h2 className="font-[500] text-lg pb-2">
-            {getMoment.year()}년{getMoment.month() + 1}월 스케쥴
+            {getMoment.year()}년{getMoment.month() + 1}월 스케줄
           </h2>
           <div className={cx(styles.calendarHeader)}>
             {DAYS.map((day) => {
