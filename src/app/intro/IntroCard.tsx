@@ -19,14 +19,7 @@ export default function IntroCard() {
           </p>
           <h4 className="text-white/90 font-medium text-xl">WHO 🎉</h4>
         </CardFooter>
-       // <Image
-         // removeWrapper
-         // alt="Relaxing app background"
-         // className="z-0 w-full h-full object-cover"
-          //src="https://ibb.co/LQqtBk2" width="403" height="302"
-       // />
-
-       <Image
+        <Image
           src="https://ibb.co/LQqtBk2"
           alt="Picture of the author"
           width={402}
