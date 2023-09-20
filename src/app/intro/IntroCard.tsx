@@ -15,7 +15,7 @@ export default function IntroCard() {
       >
         <CardFooter className="absolute z-10 top-0 flex-col items-start bg-black/40 border-b-1 border-default-600 dark:border-default-100">
           <p className="text-tiny text-white/40 uppercase font-bold">
-            SINCE 1999 ~
+            SINCE 2000 ~
           </p>
           <h4 className="text-white/90 font-medium text-xl">WHO 🎉</h4>
         </CardFooter>
