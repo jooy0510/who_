@@ -5,6 +5,8 @@ export interface NotionDatabaseResults {
     상태: PhotosStatus;
     곡명: PhotosMusic;
     '인원, 구성': PhotosMember;
+    공연명:PhotosMusic;
+    날짜: DriveData;
   };
 }
 
@@ -21,7 +23,9 @@ interface NotionProperty {
 interface PhotosStatus {
   multi_select: MultiSelect[];
 }
-
+interface DriveData{
+  Data: RichText[];
+}
 interface PhotosMember {
   rich_text: RichText[];
 }
