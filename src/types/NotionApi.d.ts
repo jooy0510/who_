@@ -41,10 +41,10 @@ interface MultiSelect {
 }
 interface RichText {
   type: string;
-  text: {
-    content: string;
-    link?: string;
-  };
+  //text: {
+  //  content: string;
+   // link?: string;
+ // };
   plain_text: string;
 }
 interface Title {
