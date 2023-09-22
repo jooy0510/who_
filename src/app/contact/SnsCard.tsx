@@ -27,7 +27,7 @@ export default function SnsCard() {
           />
           <div className="flex flex-col">
             <p className="text-md">WHO</p>
-            <Link href="https://instagram.com" size="sm" isExternal>
+            <Link href="https://instagram.com/cheerleader.who/" size="sm" isExternal>
               <p className="text-small text-default-500 flex justify-start items-center gap-2">
                 <BsInstagram></BsInstagram>
                 <span>Insta : {INFO_INSTA}</span>
