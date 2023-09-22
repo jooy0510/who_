@@ -7,7 +7,7 @@ export default async function DrivePage() {
     return (
       <main>
         <div className="pt-6 flex flex-col justify-center items-center">
-          <h1 className="font-bold text-lg">WHO 공연 목록</h1>
+          <h1 className="font-bold text-lg">WHO 2023 공연 목록</h1>
           <DriveList list={data}></DriveList>
         </div>
       </main>
