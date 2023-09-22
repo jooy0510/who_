@@ -24,7 +24,7 @@ interface PhotosStatus {
   multi_select: MultiSelect[];
 }
 interface DriveData{
-  Data: RichText[];
+  Date: RichText[];
 }
 interface PhotosMember {
   rich_text: RichText[];
@@ -41,10 +41,10 @@ interface MultiSelect {
 }
 interface RichText {
   type: string;
-  //text: {
-  //  content: string;
-   // link?: string;
- // };
+  text: {
+    content: string;
+    link?: string;
+  };
   plain_text: string;
 }
 interface Title {
