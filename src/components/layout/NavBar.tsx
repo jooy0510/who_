@@ -9,6 +9,7 @@ import styles from '@/styles/NavBar.module.scss';
 const NAV_MENU_LIST = [
   { title: '소개', href: '/intro' },
   { title: '찬조신청', href: '/contact' },
+  { title: '공연', href: '/drive' },
   { title: '연습현황', href: '/photos' },
 ];
 
