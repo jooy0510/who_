@@ -41,7 +41,7 @@ export default function SnsCard() {
         </CardHeader>
         <Divider />
         <CardBody>
-          <p className="text-sm">고등학생 응원단 WHO</p>
+          <p className="text-sm">수원하이텍고 응원단 WHO</p>
         </CardBody>
       </Card>
     </div>
