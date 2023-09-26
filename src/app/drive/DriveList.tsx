@@ -26,13 +26,6 @@ export default function DriveList({ list }: Props) {
             <span className="font-bold ">
               {properties.공연명.title?.map((title) => title.plain_text)}
             </span>
-            <div className={styles.practiceStatus}>
-              {properties.예정일.Date?.map((status: any) => (
-                <Button size="sm" radius="full" key={status.id} className="">
-                  {status.name}
-                </Button>
-              ))}
-            </div>
           </CardHeader>
         </Card>
       ))}
