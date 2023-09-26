@@ -6,7 +6,7 @@ export interface NotionDatabaseResults {
     곡명: PhotosMusic;
     '인원, 구성': PhotosMember;
     공연명:PhotosMusic;
-    날짜: DriveData;
+    예정일: DriveData;
   };
 }
 
