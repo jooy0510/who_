@@ -20,9 +20,9 @@ export default function AwardList() {
         <Divider></Divider>
         <CardBody className="grid grid-cols-12 text-sm">
           <div className="col-span-6">
+            <p>🏆제14회 마이스터예술제 대상</p>
             <p>🥇제4회 마이스터예술제 대상</p>
             <p>🥉제6회 마이스터예술제 동상</p>
-            <p>🥈동아리 경연대회 우수상</p>
             <p>🥇페스티벌 경연대회 금상</p>
             <p>🎖️올림피아드 치어리딩대회 특별상</p>
           </div>
