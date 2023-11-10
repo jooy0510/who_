@@ -21,6 +21,7 @@ export default function AwardList() {
         <CardBody className="grid grid-cols-12 text-sm">
           <div className="col-span-6">
             <p>🏆제14회 마이스터예술제 대상</p>
+            <p>🎖️제14회 마이스터예술제 ARS 인기상</p>
             <p>🥇제4회 마이스터예술제 대상</p>
             <p>🥉제6회 마이스터예술제 동상</p>
             <p>🥇페스티벌 경연대회 금상</p>
@@ -32,6 +33,7 @@ export default function AwardList() {
             <p>🥇수원시동아리경연대회 대상</p>
             <p>🥈경기 댄스 경연대회 은상</p>
             <p>🎖️경기 댄스 경연대회 특별상</p>
+            <p>🥈동아리 경연대회 우수상</p>
           </div>
         </CardBody>
         <Divider></Divider>
