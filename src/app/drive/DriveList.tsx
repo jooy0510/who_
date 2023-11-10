@@ -39,7 +39,7 @@ function NotionImage({ cover }: { cover: Cover }) {
   return (
     <>
       {keys?.map((key, idx) => (
-        <Image key={idx} src={cover[key].url} alt="연습 사진" fill></Image>
+        <Image key={idx} src={cover[key].url} alt="무대 사진" fill></Image>
       ))}
     </>
   );
