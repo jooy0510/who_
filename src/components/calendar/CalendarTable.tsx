@@ -32,7 +32,7 @@ export default function CalendarTable({ list }: { list: ScheduleItem[] }) {
             <TableColumn key={column.key}>{column.label}</TableColumn>
           )}
         </TableHeader>
-        <TableBody emptyContent={'이번달 공연이 없습니다.'} items={list}>
+        <TableBody emptyContent={'이번달 일정이 없습니다.'} items={list}>
           {(item) => (
             <TableRow key={item.key}>
               {(columnKey) => {
