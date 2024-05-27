@@ -37,7 +37,7 @@ export default function AwardList() {
           </div>
         </CardBody>
         <Divider></Divider>
-        <CardFooter>15개 수상</CardFooter>
+        <CardFooter>17개 수상</CardFooter>
       </Card>
     </div>
   );
