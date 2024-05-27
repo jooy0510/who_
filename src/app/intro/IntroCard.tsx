@@ -30,7 +30,7 @@ export default function IntroCard() {
             <Image
               alt="Breathing app icon"
               className="rounded-full w-10 h-11 bg-black"
-              src="/images/breathing-app-icon.jpeg"
+              src="public/images/2.jpg"
             />
             <div className="flex flex-col">
               <p className="text-tiny text-white/80">공연, 후원, 찬조는</p>
