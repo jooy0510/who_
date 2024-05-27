@@ -23,7 +23,7 @@ export default function IntroCard() {
           removeWrapper
           alt="Relaxing app background"
           className="z-0 w-full h-full object-cover"
-          src="2.jpg"
+          src="https://github.com/jooy0510/who_/blob/main/public/images/2.jpg?raw=true"
         />
         <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
           <div className="flex flex-grow gap-2 items-center">
